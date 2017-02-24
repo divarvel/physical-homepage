@@ -22,7 +22,7 @@ headBlock :: H.Html
 headBlock = H.head $ do
   H.meta ! A.charset "utf-8"
   H.meta ! A.httpEquiv "X-UA-Compatible" ! A.content "IE=edge"
-  H.title "Clément Delafargue"
+  H.title " 🌈 Clément Delafargue  🌈 "
   forM_ meta (\(name, content) -> H.meta ! A.name (toValue name) ! A.content (toValue content))
   --I don't have icons yet
   --H.link ! A.rel "icon" ! A.sizes "192x192" ! A.href "images/android-desktop.png"
