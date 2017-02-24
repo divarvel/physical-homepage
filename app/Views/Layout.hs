@@ -24,10 +24,9 @@ headBlock = H.head $ do
   H.meta ! A.httpEquiv "X-UA-Compatible" ! A.content "IE=edge"
   H.title " 🌈 Clément Delafargue  🌈 🐇"
   forM_ meta (\(name, content) -> H.meta ! A.name (toValue name) ! A.content (toValue content))
-  --I don't have icons yet
-  --H.link ! A.rel "icon" ! A.sizes "192x192" ! A.href "images/android-desktop.png"
-  --H.link ! A.rel "apple-touch-icon-precomposed" ! A.href "images/ios-desktop.png"
-  --H.link ! A.rel "shortcut icon" ! A.href "images/favicon.png"
+  H.link ! A.rel "icon" ! A.sizes "192x192" ! A.href "assets/android-desktop.png"
+  H.link ! A.rel "apple-touch-icon-precomposed" ! A.href "assets/ios-desktop.png"
+  H.link ! A.rel "shortcut icon" ! A.href "assets/favicon.png"
   forM_ stylesheets (\href -> H.link ! A.rel "stylesheet" ! A.href (toValue href))
 
   where
@@ -39,8 +38,7 @@ headBlock = H.head $ do
       , ("apple-mobile-web-app-capable", "yes")
       , ("apple-mobile-web-app-status-bar-style", "black")
       , ("apple-mobile-web-app-title",   "Clément Delafargue")
-      --, ("msapplication-TileImage",      "images/touch/ms-touch-icon-144x144-precomposed.png")
-      , ("msapplication-TileColor",      "#3372DF")
+      , ("msapplication-TileColor",      "#FF9800")
       ]
 
     stylesheets :: [Text]
