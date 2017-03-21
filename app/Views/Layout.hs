@@ -58,7 +58,9 @@ bodyBlock header content = H.body ! A.class_ "mdl-demo mdl-color--grey-100 mdl-c
 
 headerBlock :: H.Html
 headerBlock = H.header ! A.class_ "mdl-layout__header mdl-layout__header--scroll mdl-color--primary" $
-   H.div ! A.class_ "mdl-layout__header-row" $ H.h1 "Clément Delafargue"
+   H.div ! A.class_ "mdl-layout__header-row" $
+     H.h1 $
+       H.a ! A.class_ "title" ! A.href "/" $ "Clément Delafargue"
 
 mainBlock :: H.Html -> H.Html
 mainBlock content = H.main ! A.class_ "mdl-layout__content" $ do
@@ -69,7 +71,6 @@ footerBlock :: H.Html
 footerBlock = H.footer ! A.class_ "mdl-mega-footer" $
    H.div ! A.class_ "mdl-mega-footer--bottom-section" $
       H.ul ! A.class_ "mdl-mega-footer--link-list" $ do
-        H.li $ H.a ! A.href "#" $ "About me"
         H.li $ H.a ! A.href "https://twitter.com/clementd" $ "Twitter"
         H.li $ H.a ! A.href "https://github.com/divarvel" $ "Github"
         H.li $ H.a ! A.href "http://blog.clement.delafargue.name" $ "Tech blog"
