@@ -41,7 +41,7 @@ allTalks talks = H.section ! A.class_ cardClasses $
       H.h4 ! A.class_ "mdl-cell mdl-cell--12-col" $ "Talks"
       forM_ talks talkBlock
     H.div ! A.class_ "mdl-card__actions" $
-      H.a ! A.href "#" ! A.class_ "mdl-button" $ "All my talks"
+      H.a ! A.href "/talks" ! A.class_ "mdl-button" $ "All my talks"
 
 cleverCloudBlock :: H.Html
 cleverCloudBlock = H.section ! A.class_ cardClasses $ do
