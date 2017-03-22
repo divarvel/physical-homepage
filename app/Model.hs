@@ -6,5 +6,6 @@ data Talk = Talk
   { title       :: !Text
   , description :: !Text
   , slides      :: !(Maybe Text)
+  , video       :: !(Maybe Text)
   , featured    :: !Bool
   }

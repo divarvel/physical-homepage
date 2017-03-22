@@ -17,4 +17,4 @@ import Views.MainPage (allTalks)
 
 talksPage :: [Talk] -> H.Html
 talksPage talks = mainLayout $ do
-  allTalks talks
+  allTalks False talks

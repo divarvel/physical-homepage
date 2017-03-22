@@ -17,7 +17,7 @@ import Views.Layout
 mainPage :: [Talk] -> H.Html
 mainPage talks = mainLayout $ do
   miniBlock
-  allTalks $ filter featured talks
+  allTalks True $ filter featured talks
   cleverCloudBlock
 
 talkBlock :: Talk -> H.Html
@@ -26,22 +26,29 @@ talkBlock talk =
     H.h5 $ H.toHtml $ title talk
     H.toHtml $ description talk
     forM_ (slides talk) renderSlidesLink
+    forM_ (video talk) renderVideoLink
   where
-    renderSlidesLink :: Text -> H.Html
-    renderSlidesLink url = do
+    renderSlidesLink = renderLink "Read Slides"
+    renderVideoLink = renderLink "Watch Video 📹"
+    renderLink :: Text -> Text -> H.Html
+    renderLink title url = do
       " "
-      H.a ! A.href (toValue url) ! A.target "_blank" $ "Read slides"
+      H.a ! A.href (toValue url) ! A.target "_blank" $ toHtml title
 
 cardClasses = "section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp"
 
-allTalks :: [Talk] -> H.Html
-allTalks talks = H.section ! A.class_ cardClasses $
+allTalks :: Bool -> [Talk] -> H.Html
+allTalks isMain talks = H.section ! A.class_ cardClasses $
   H.div ! A.class_ "mdl-card mdl-cell mdl-cell--12-col" $ do
     H.div ! A.class_ "mdl-card__supporting-text mdl-grid mdl-grid--no-spacing" $ do
       H.h4 ! A.class_ "mdl-cell mdl-cell--12-col" $ "Talks"
       forM_ talks talkBlock
-    H.div ! A.class_ "mdl-card__actions" $
-      H.a ! A.href "/talks" ! A.class_ "mdl-button" $ "All my talks"
+    if isMain then
+      H.div ! A.class_ "mdl-card__actions" $
+        H.a ! A.href "/talks" ! A.class_ "mdl-button" $ "All my talks"
+    else
+      H.div ! A.class_ "mdl-card__actions" $
+        H.a ! A.href "https://www.youtube.com/playlist?list=PLvjEkX1131rDgetaKc2wLqGT92ThIjEaC" ! A.class_ "mdl-button" $ "All my videos"
 
 cleverCloudBlock :: H.Html
 cleverCloudBlock = H.section ! A.class_ cardClasses $ do
