@@ -24,16 +24,15 @@ talkBlock :: Talk -> H.Html
 talkBlock talk =
   H.div ! A.class_ "section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone" $ do
     H.h5 $ H.toHtml $ title talk
-    H.toHtml $ description talk
-    forM_ (slides talk) renderSlidesLink
+    H.p $ H.toHtml $ description talk
+    forM_ (slides talk) $ renderSlidesLink
     forM_ (video talk) renderVideoLink
   where
     renderSlidesLink = renderLink "Read Slides"
     renderVideoLink = renderLink "Watch Video 📹"
     renderLink :: Text -> Text -> H.Html
     renderLink title url = do
-      " "
-      H.a ! A.href (toValue url) ! A.target "_blank" $ toHtml title
+      H.p $ H.a ! A.href (toValue url) ! A.target "_blank" $ toHtml title
 
 cardClasses = "section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp"
 
