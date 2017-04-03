@@ -50,4 +50,11 @@ talks =
       (Just "https://clementd-files.cellar.services.clever-cloud.com/blog/tips-tricks-rdbms-geecon.html")
       Nothing
       False
+  , Talk
+      "Rust: are web web yet?"
+      "Rust is touted for systems programming, but there are web stacks available: \
+      \iron, nickel, rouille, now rocket. Web dev in rust, is it doable yet?"
+      (Just "https://clementd-files.cellar.services.clever-cloud.com/blog/rust-web.html")
+      Nothing
+      False
   ]
