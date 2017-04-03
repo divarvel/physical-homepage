@@ -3,6 +3,7 @@
 
 import Network.Wai.Metrics (metrics, registerWaiMetrics)
 import Network.Wai.Middleware.Static (hasPrefix, staticPolicy)
+import System.Environment (lookupEnv)
 import System.Metrics (newStore)
 import System.Remote.Monitoring.Statsd (defaultStatsdOptions, forkStatsd)
 import qualified Text.Blaze.Html5 as H
@@ -18,7 +19,8 @@ main = do
   store <- newStore
   waiMetrics <- registerWaiMetrics store
   forkStatsd defaultStatsdOptions store
-  scotty 8080 $ do
+  port <- lookupEnv "PORT"
+  scotty (maybe 3001 read port) $ do
     middleware $ metrics waiMetrics
     middleware $ staticPolicy (hasPrefix  "assets/")
     get "/" $
