@@ -173,3 +173,8 @@ a.title {
 a.title:hover, a.title:focus {
   text-decoration: underline;
 }
+
+.profile-pic {
+  max-width: 100%;
+  object-fit: contain;
+}
