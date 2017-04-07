@@ -10,7 +10,7 @@ talks =
       "Get consistency back in your μServices architecture: \
         \the best way to reduce complexity in a μServices architecture is to embrace boundaries. \
         \You'll see how to do it with the help of proper design and a good type system."
-      (Just "https://clementd-files.cellar.services.clever-cloud.com/blog/acknowledging-boundaries.html")
+      (Just "https://clementd-files.cellar.services.clever-cloud.com/blog/acknowledging-boundaries-devoxxfr.html")
       (Just "https://www.youtube.com/watch?v=VmVQmC33UVM&list=PLvjEkX1131rDgetaKc2wLqGT92ThIjEaC&index=4")
       True
   , Talk
