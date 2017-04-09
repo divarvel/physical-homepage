@@ -57,4 +57,11 @@ talks =
       (Just "https://clementd-files.cellar.services.clever-cloud.com/blog/rust-web.html")
       Nothing
       False
+  , Talk
+      "Systemd: why use it? How does it work?"
+      "After some heat, systemd has replaced initd in many GNU/Linux distros. \
+      \Why? Is it hard to write a systemd config file? How does it work? How do you replace cron?"
+      (Just "https://docs.google.com/presentation/d/17z2USTEqp3jcIilSbzfjpTV31PFUnier916Qytyqu6k/pub?start=false&loop=false&delayms=3000")
+      Nothing
+      False
   ]
