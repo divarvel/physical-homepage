@@ -51,6 +51,15 @@ talks =
       Nothing
       False
   , Talk
+      "Purescript, des sensations pures"
+      "Dans le monde du compile-to-js, il y a des langages proches (genre coffeescript), \
+      \et des langages qui vont un peu plus loin (genre typescript). \
+      \Et puis il y a purescript. Ce soir, on verra le pourquoi et le comment, avec la bibliothèque halogen, \
+      \qui permet de créer des applications/interface graphiques."
+      (Just "https://clementd-files.cellar.services.clever-cloud.com/blog/purescript-nantesjs.html")
+      Nothing
+      False
+  , Talk
       "Rust: are web web yet?"
       "Rust is touted for systems programming, but there are web stacks available: \
       \iron, nickel, rouille, now rocket. Web dev in rust, is it doable yet?"
