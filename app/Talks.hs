@@ -51,14 +51,14 @@ talks =
       \When you've started to follow this path, there's no going back. Using observables allow you to \
       \go one step further."
       (En // "https://clementd-files.cellar.services.clever-cloud.com/blog/frp-full-cycle-ncrafts.html")
-      M.empty
+      (Fr // "https://www.youtube.com/watch?v=ZAm-9i1O_HY&t=34s")
       False
   , Talk
       "Tips and tricks for clean (relational) DB schemas"
       "Relational DBs are great at what they do. If you're going to use them for persitence, \
       \use them correctly, and don't use tools which only goal is to hide them from you."
       (En // "https://clementd-files.cellar.services.clever-cloud.com/blog/tips-tricks-rdbms-geecon.html")
-      M.empty
+      (Fr // "https://www.youtube.com/watch?v=-JOE8c0v84Q")
       False
   , Talk
       "Purescript, des sensations pures"
@@ -81,6 +81,6 @@ talks =
       "After some heat, systemd has replaced initd in many GNU/Linux distros. \
       \Why? Is it hard to write a systemd config file? How does it work? How do you replace cron?"
       (En // "https://docs.google.com/presentation/d/17z2USTEqp3jcIilSbzfjpTV31PFUnier916Qytyqu6k/pub?start=false&loop=false&delayms=3000")
-      M.empty
+      (Fr // "https://www.youtube.com/watch?v=XwcpLtEyVXE")
       False
   ]
