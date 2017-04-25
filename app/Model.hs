@@ -1,11 +1,14 @@
 module Model where
 
-import Data.Text (Text(..))
+import qualified Data.Map  as M
+import           Data.Text (Text (..))
+
+data Lang = Fr | En deriving (Eq, Ord)
 
 data Talk = Talk
   { title       :: !Text
   , description :: !Text
-  , slides      :: !(Maybe Text)
-  , video       :: !(Maybe Text)
+  , slides      :: !(M.Map Lang Text)
+  , video       :: !(M.Map Lang Text)
   , featured    :: !Bool
   }

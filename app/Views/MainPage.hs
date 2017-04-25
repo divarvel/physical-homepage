@@ -2,17 +2,19 @@
 
 module Views.MainPage where
 
-import Control.Monad (forM_)
-import Data.Monoid ((<>), mconcat)
-import Data.Text (Text(..))
-import Network.Wai.Middleware.Static (static)
-import Text.Blaze.Html5 ((!), toHtml, toValue)
-import qualified Text.Blaze.Html5 as H
-import qualified Text.Blaze.Html5.Attributes as A
-import Text.Blaze.Html.Renderer.Text (renderHtml)
+import           Control.Monad                 (forM_)
+import           Data.List                     (intersperse)
+import qualified Data.Map                      as M
+import           Data.Monoid                   (mconcat, (<>))
+import           Data.Text                     (Text (..))
+import           Network.Wai.Middleware.Static (static)
+import           Text.Blaze.Html.Renderer.Text (renderHtml)
+import           Text.Blaze.Html5              (toHtml, toValue, (!))
+import qualified Text.Blaze.Html5              as H
+import qualified Text.Blaze.Html5.Attributes   as A
 
-import Model (Talk(..))
-import Views.Layout
+import           Model                         (Lang (..), Talk (..))
+import           Views.Layout
 
 mainPage :: [Talk] -> H.Html
 mainPage talks = mainLayout $ do
@@ -25,14 +27,19 @@ talkBlock talk =
   H.div ! A.class_ "section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone" $ do
     H.h5 $ H.toHtml $ title talk
     H.p $ H.toHtml $ description talk
-    forM_ (slides talk) $ renderSlidesLink
-    forM_ (video talk) renderVideoLink
+    forM_ allLinks id
   where
-    renderSlidesLink = renderLink "Read Slides"
-    renderVideoLink = renderLink "Watch Video 📹"
+    renderLinks extractor renderF = map (uncurry renderF) (M.toList $ extractor talk)
+    slidesLinks = renderLinks slides renderSlidesLink
+    videosLinks = renderLinks video renderVideoLink
+    allLinks = intersperse (toHtml (" || " :: Text)) (slidesLinks <> videosLinks)
+    renderSlidesLink En = renderLink "Read (in english 🇬🇧)"
+    renderSlidesLink Fr = renderLink "Lire (en français 🇫🇷)"
+    renderVideoLink En = renderLink "Watch 📹 (in english 🇬🇧)"
+    renderVideoLink Fr = renderLink "Regarder 📹 (en français 🇫🇷)"
     renderLink :: Text -> Text -> H.Html
     renderLink title url = do
-      H.p $ H.a ! A.href (toValue url) ! A.target "_blank" $ toHtml title
+      H.span $ H.a ! A.href (toValue url) ! A.target "_blank" $ toHtml title
 
 cardClasses = "section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp"
 
