@@ -9,7 +9,7 @@ import           Data.Text   (Text (..))
 import           Model       (Lang (..), Talk (..))
 
 (//) :: Lang -> Text -> M.Map Lang Text
-l // url = M.fromList [(l, url)]
+(//) = M.singleton
 
 talks =
   [ Talk
