@@ -4,7 +4,7 @@
 import Network.Wai.Metrics (metrics, registerWaiMetrics)
 import Network.Wai.Middleware.Static (hasPrefix, staticPolicy)
 import System.Environment (lookupEnv)
-import System.Metrics (newStore)
+import System.Metrics (newStore, registerGcMetrics)
 import System.Remote.Monitoring.Statsd (defaultStatsdOptions, forkStatsd)
 import qualified Text.Blaze.Html5 as H
 import Text.Blaze.Html.Renderer.Text (renderHtml)
@@ -17,6 +17,7 @@ import Views.TalksPage
 
 main = do
   store <- newStore
+  registerGcMetrics store
   waiMetrics <- registerWaiMetrics store
   forkStatsd defaultStatsdOptions store
   port <- lookupEnv "PORT"
