@@ -1,7 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-
-import           Network.Wai.Metrics             (metrics, registerWaiMetrics)
+import           Control.Monad                   (when)
+import           Network.Wai.Metrics             (WaiMetrics, metrics,
+                                                  registerWaiMetrics)
 import           Network.Wai.Middleware.Static   (hasPrefix, staticPolicy)
 import           System.Environment              (lookupEnv)
 import           System.Metrics                  (newStore, registerGcMetrics)
@@ -17,11 +18,21 @@ import           Talks                           (talks)
 import           Views.MainPage
 import           Views.TalksPage
 
-main = do
+
+handleMetrics :: IO WaiMetrics
+handleMetrics = do
   store <- newStore
   registerGcMetrics store
   waiMetrics <- registerWaiMetrics store
-  forkStatsd defaultStatsdOptions store
+  sendMetrics <- maybe False (== "true") <$> lookupEnv "ENABLE_METRICS"
+  when sendMetrics $ do
+    putStrLn "statsd reporting enabled"
+    forkStatsd defaultStatsdOptions store
+    return ()
+  return waiMetrics
+
+main = do
+  waiMetrics <- handleMetrics
   port <- lookupEnv "PORT"
   talks <- loadTalks
   scotty (maybe 3001 read port) $ do
@@ -30,4 +41,4 @@ main = do
     get "/" $
       html $ renderHtml $ mainPage talks
     get "/talks" $
-        html $ renderHtml $ talksPage talks
+      html $ renderHtml $ talksPage talks
