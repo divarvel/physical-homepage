@@ -15,15 +15,19 @@ executable spock-exe
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts "-with-rtsopts=-T -N"
   build-depends:       base
+                     , aeson
                      , blaze-html
+                     , bytestring
                      , containers
                      , ekg-core
                      , ekg-statsd
+                     , lens
                      , mtl
                      , scotty
                      , text
                      , wai-middleware-metrics
                      , wai-middleware-static
+                     , wreq
   default-language:    Haskell2010
   other-modules:       Model
                      , Views.Layout
