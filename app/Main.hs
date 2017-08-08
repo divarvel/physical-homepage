@@ -1,20 +1,21 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 
-import Network.Wai.Metrics (metrics, registerWaiMetrics)
-import Network.Wai.Middleware.Static (hasPrefix, staticPolicy)
-import System.Environment (lookupEnv)
-import System.Metrics (newStore, registerGcMetrics)
-import System.Remote.Monitoring.Statsd (defaultStatsdOptions, forkStatsd)
-import qualified Text.Blaze.Html5 as H
-import Text.Blaze.Html.Renderer.Text (renderHtml)
-import Web.Scotty
+import           Network.Wai.Metrics             (metrics, registerWaiMetrics)
+import           Network.Wai.Middleware.Static   (hasPrefix, staticPolicy)
+import           System.Environment              (lookupEnv)
+import           System.Metrics                  (newStore, registerGcMetrics)
+import           System.Remote.Monitoring.Statsd (defaultStatsdOptions,
+                                                  forkStatsd)
+import           Text.Blaze.Html.Renderer.Text   (renderHtml)
+import qualified Text.Blaze.Html5                as H
+import           Web.Scotty
 
-import Evman (loadTalks)
-import Model (Talk(..))
-import Talks (talks)
-import Views.MainPage
-import Views.TalksPage
+import           Evman                           (loadTalks)
+import           Model                           (Talk (..))
+import           Talks                           (talks)
+import           Views.MainPage
+import           Views.TalksPage
 
 main = do
   store <- newStore
