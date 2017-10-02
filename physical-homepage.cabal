@@ -25,6 +25,7 @@ executable spock-exe
                      , mtl
                      , scotty
                      , text
+                     , text-icu
                      , wai-middleware-metrics
                      , wai-middleware-static
                      , wreq

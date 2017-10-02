@@ -13,7 +13,7 @@ import           Text.Blaze.Html5              (toHtml, toValue, (!))
 import qualified Text.Blaze.Html5              as H
 import qualified Text.Blaze.Html5.Attributes   as A
 
-import           Model                         (Lang (..), Talk (..))
+import           Model                         (Lang (..), Talk (..), makeSlug)
 import           Views.Layout
 
 mainPage :: [Talk] -> H.Html
@@ -25,10 +25,11 @@ mainPage talks = mainLayout $ do
 talkBlock :: Talk -> H.Html
 talkBlock talk =
   H.div ! A.class_ "section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone" $ do
-    H.h5 $ H.toHtml $ title talk
+    H.h5 ! A.id slug $ H.toHtml $ title talk
     H.p $ H.toHtml $ description talk
     forM_ allLinks id
   where
+    slug = H.toValue . makeSlug . title $ talk
     renderLinks extractor renderF = map (uncurry renderF) (M.toList $ extractor talk)
     slidesLinks = renderLinks slides renderSlidesLink
     videosLinks = renderLinks video renderVideoLink
