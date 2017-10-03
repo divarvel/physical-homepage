@@ -178,3 +178,11 @@ a.title:hover, a.title:focus {
   max-width: 100%;
   object-fit: contain;
 }
+
+h5 a {
+   color: inherit;
+}
+
+h5:hover::after {
+  content: " §";
+}

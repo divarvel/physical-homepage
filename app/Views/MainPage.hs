@@ -25,11 +25,13 @@ mainPage talks = mainLayout $ do
 talkBlock :: Talk -> H.Html
 talkBlock talk =
   H.div ! A.class_ "section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone" $ do
-    H.h5 ! A.id slug $ H.toHtml $ title talk
+    H.h5 ! A.id (H.toValue slug) $ do
+      H.a ! A.class_ "permalink" ! A.href (H.toValue $ "#" <> slug) $
+        H.toHtml $ title talk
     H.p $ H.toHtml $ description talk
     forM_ allLinks id
   where
-    slug = H.toValue . makeSlug . title $ talk
+    slug = makeSlug . title $ talk
     renderLinks extractor renderF = map (uncurry renderF) (M.toList $ extractor talk)
     slidesLinks = renderLinks slides renderSlidesLink
     videosLinks = renderLinks video renderVideoLink
