@@ -38,7 +38,12 @@ main = do
   scotty (maybe 3001 read port) $ do
     middleware $ metrics waiMetrics
     middleware $ staticPolicy (hasPrefix  "assets/")
+    middleware $ staticPolicy (hasPrefix  "me/assets/")
     get "/" $
       html $ renderHtml $ mainPage talks
     get "/talks" $
+      html $ renderHtml $ talksPage talks
+    get "/me" $
+      html $ renderHtml $ mainPage talks
+    get "/me/talks" $
       html $ renderHtml $ talksPage talks
