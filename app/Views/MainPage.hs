@@ -54,7 +54,7 @@ allTalks isMain talks = H.section ! A.class_ cardClasses $
       forM_ talks talkBlock
     if isMain then
       H.div ! A.class_ "mdl-card__actions" $
-        H.a ! A.href "/talks" ! A.class_ "mdl-button" $ "All my talks"
+        H.a ! A.href "/me/talks" ! A.class_ "mdl-button" $ "All my talks"
     else
       H.div ! A.class_ "mdl-card__actions" $
         H.a ! A.href "https://www.youtube.com/playlist?list=PLvjEkX1131rDgetaKc2wLqGT92ThIjEaC" ! A.class_ "mdl-button" $ "All my videos"
