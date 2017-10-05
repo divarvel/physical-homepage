@@ -24,9 +24,9 @@ headBlock = H.head $ do
   H.meta ! A.httpEquiv "X-UA-Compatible" ! A.content "IE=edge"
   H.title " 🌈 Clément Delafargue  🌈 🐇"
   forM_ meta (\(name, content) -> H.meta ! A.name (toValue name) ! A.content (toValue content))
-  H.link ! A.rel "icon" ! A.sizes "192x192" ! A.href "assets/android-desktop.png"
-  H.link ! A.rel "apple-touch-icon-precomposed" ! A.href "assets/ios-desktop.png"
-  H.link ! A.rel "shortcut icon" ! A.href "assets/favicon.png"
+  H.link ! A.rel "icon" ! A.sizes "192x192" ! A.href "/me/assets/android-desktop.png"
+  H.link ! A.rel "apple-touch-icon-precomposed" ! A.href "/me/assets/ios-desktop.png"
+  H.link ! A.rel "shortcut icon" ! A.href "/me/assets/favicon.png"
   forM_ stylesheets (\href -> H.link ! A.rel "stylesheet" ! A.href (toValue href))
 
   where
@@ -45,8 +45,8 @@ headBlock = H.head $ do
     stylesheets =
       [ "https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
       , "https://fonts.googleapis.com/icon?family=Material+Icons"
-      , "assets/material.orange-deep_orange.min.css"
-      , "assets/style.css"
+      , "/me/assets/material.orange-deep_orange.min.css"
+      , "/me/assets/style.css"
       ]
 
 bodyBlock :: H.Html -> H.Html -> H.Html
@@ -54,7 +54,7 @@ bodyBlock header content = H.body ! A.class_ "mdl-demo mdl-color--grey-100 mdl-c
   H.div ! A.class_ "mdl-layout mdl-js-layout mdl-layout--fixed-header" $ do
     header
     content
-  H.script ! A.src "assets/material.min.js" $ ""
+  H.script ! A.src "/me/assets/material.min.js" $ ""
 
 headerBlock :: H.Html
 headerBlock = H.header ! A.class_ "mdl-layout__header mdl-layout__header--scroll mdl-color--primary" $

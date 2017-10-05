@@ -82,7 +82,7 @@ cleverCloudBlock = H.section ! A.class_ cardClasses $ do
 miniBlock :: H.Html
 miniBlock = H.section ! A.class_ cardClasses $ do
   H.header ! A.class_ "section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone" $
-    H.img ! A.src "/assets/profile2.jpg" ! A.alt "Clément Delafargue" ! A.class_ "profile-pic"
+    H.img ! A.src "/me/assets/profile2.jpg" ! A.alt "Clément Delafargue" ! A.class_ "profile-pic"
   H.div ! A.class_ "mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone" $ do
     H.div ! A.class_ "mdl-card__supporting-text" $ do
       H.h4 "Hi, I'm Clément"
