@@ -186,3 +186,11 @@ h5 a {
 h5:hover::after {
   content: " §";
 }
+
+.section__text {
+  padding-bottom: 1em;
+}
+
+.section__text p {
+  margin-bottom: 0;
+}
