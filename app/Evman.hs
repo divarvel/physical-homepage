@@ -10,6 +10,7 @@ import           Data.Aeson
 import           Data.ByteString.Lazy (ByteString)
 import           Data.List
 import qualified Data.Map             as M
+import           Data.Maybe           (fromMaybe, listToMaybe)
 import           Data.Text            (Text (..))
 import qualified Data.Text            as T
 import           GHC.Generics
@@ -68,9 +69,20 @@ hiddenIds = [33, 38, 39, 40, 41]
 removeHidden :: EvmanTalk -> Bool
 removeHidden (EvmanTalk i _ _ _) = not $ i `elem` hiddenIds
 
+getEnglishVersion :: Text -> Text
+getEnglishVersion =  fromMaybe "" . listToMaybe . (T.splitOn "%%%%")
+
 toTalk :: EvmanTalk -> Talk
-toTalk (EvmanTalk i n a rls) = Talk n (head . T.lines $ a) slides videos feat
+toTalk (EvmanTalk i n a rls) =
+    Talk
+      englishTitle
+      (head . T.lines $ englishAbstract)
+      slides
+      videos
+      feat
   where
+    englishTitle = getEnglishVersion n
+    englishAbstract = getEnglishVersion a
     slides = toLinks 2 rls
     videos = toLinks 1 rls
     feat = i `elem` featuredIds
