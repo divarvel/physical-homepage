@@ -11,7 +11,7 @@
     npm install -g devloop # if not already available
     loop
 
-## Troubleshoot on MacOS
+## Troubleshoot on MacOS
 
 If the compilation fails with a message about missing ICU libraries / headers:
 
@@ -22,4 +22,5 @@ If the compilation fails with a message about missing ICU libraries / headers:
 
 ## How it works
 
-Talks are fetched from evman at boot time.
+Talks are listed in `app/Talks.hs`. You can also write a function producing a `IO [Talk]`
+and call it in `main`.
