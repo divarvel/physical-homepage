@@ -20,7 +20,7 @@ mainPage :: [Talk] -> H.Html
 mainPage talks = mainLayout $ do
   miniBlock
   allTalks True $ filter featured talks
-  cleverCloudBlock
+  companyBlock
 
 talkBlock :: Talk -> H.Html
 talkBlock talk =
@@ -59,21 +59,20 @@ allTalks isMain talks = H.section ! A.class_ cardClasses $
       H.div ! A.class_ "mdl-card__actions" $
         H.a ! A.href "https://www.youtube.com/playlist?list=PLvjEkX1131rDgetaKc2wLqGT92ThIjEaC" ! A.class_ "mdl-button" $ "All my videos"
 
-cleverCloudBlock :: H.Html
-cleverCloudBlock = H.section ! A.class_ cardClasses $ do
+companyBlock :: H.Html
+companyBlock = H.section ! A.class_ cardClasses $ do
   H.div ! A.class_ "mdl-card mdl-cell mdl-cell--12-col" $ do
     H.div ! A.class_"mdl-card__supporting-text" $ do
-      H.h4 "Clever Cloud: The end of server management"
-      "We provide IT automation to free developers from server management.\
-      \Deploy to production in seconds, scale up and out automatically."
+      H.h4 "FretLink: Shipment made simpler"
+      "FretLink is a flow management solution to industrial shippers that brings \
+      \more visibility to all stakeholders in the chain."
     H.div ! A.class_ "mdl-card__actions" $
-      H.a ! A.href "https://clever-cloud.com" ! A.class_ "mdl-button" $ "Read more"
-  H.button ! A.class_ "mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ! A.id "clever-cloud-more" $
+      H.a ! A.href "https://fretlink.com" ! A.class_ "mdl-button" $ "Read more"
+  H.button ! A.class_ "mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ! A.id "fretlink-more" $
     H.i ! A.class_ "material-icons" $ "more_vert"
-  H.ul ! A.class_ "mdl-menu mdl-js-menu mdl-menu--bottom-right" ! A.for "clever-cloud-more" $ do
-    menuItem "https://github.com/CleverCloud" "Github"
-    menuItem "https://twitter.com/clever_cloud" "Twitter"
-
+  H.ul ! A.class_ "mdl-menu mdl-js-menu mdl-menu--bottom-right" ! A.for "fretlink-more" $ do
+    menuItem "https://github.com/fretlink" "Github"
+    menuItem "https://twitter.com/fretlinkeu" "Twitter"
   where
     menuItem :: Text -> Text -> H.Html
     menuItem url name = H.li ! A.class_ "mdl-menu__item" $
@@ -86,8 +85,7 @@ miniBlock = H.section ! A.class_ cardClasses $ do
   H.div ! A.class_ "mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone" $ do
     H.div ! A.class_ "mdl-card__supporting-text" $ do
       H.h4 "Hi, I'm Clément"
-      "I'm a functional programmer, serving as CTO at Clever Cloud, where I work on IT automation \
-      \and continuous delivery. I love discussing about FP, distributed systems and cloud architecture. \
+      "I'm a functional programmer working at FretLink. I love discussing about FP, distributed systems and cloud architecture. \
       \If you've seen this page pop up in \"nearby\", let's have a chat!"
     H.div ! A.class_ "mdl-card__actions" $
       H.a ! A.href "https://twitter.com/clementd" ! A.target "_blank" ! A.class_ "mdl-button" $ "@clementd"

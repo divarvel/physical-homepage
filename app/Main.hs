@@ -12,7 +12,6 @@ import           Text.Blaze.Html.Renderer.Text   (renderHtml)
 import qualified Text.Blaze.Html5                as H
 import           Web.Scotty
 
-import           Evman                           (loadTalks)
 import           Model                           (Talk (..))
 import           Talks                           (talks)
 import           Views.MainPage
@@ -34,7 +33,6 @@ handleMetrics = do
 main = do
   waiMetrics <- handleMetrics
   port <- lookupEnv "PORT"
-  talks <- loadTalks
   scotty (maybe 3001 read port) $ do
     middleware $ metrics waiMetrics
     middleware $ staticPolicy (hasPrefix  "assets/")
