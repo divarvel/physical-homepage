@@ -47,7 +47,7 @@ talks =
     "Create a Rust CLI tool in a flash "
     "\"Tools not rules\". A process without a tool to guide is mistakes waiting to happen."
     (En // "https://clementd-files.cellar.services.clever-cloud.com/blog/rust-cli-devoxxfr.html")
-    M.empty
+    (Fr // "https://www.youtube.com/watch?v=1SV2jQkegAY")
     False
   , Talk
     "Distribute auth with Macaroons"
