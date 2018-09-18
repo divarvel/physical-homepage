@@ -31,8 +31,10 @@ executable spock-exe
                      , wreq
   default-language:    Haskell2010
   other-modules:       Model
+                     , Talks
                      , Views.Layout
                      , Views.MainPage
+                     , Views.TalksPage
 
 test-suite spock-test
   type:                exitcode-stdio-1.0
