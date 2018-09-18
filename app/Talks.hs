@@ -69,6 +69,14 @@ talks =
     (Fr // "https://www.youtube.com/watch?v=yKA-hYZa2tQ")
     False
   , Talk
+    "Hoist me up, before you lift lift"
+    "Servant allows you to describe and build web API is a type-safe and composable way. It also provides a powerful way \
+    \to structure your applications by letting you choose a monad stack, either for the whole API or for specific parts of \
+    \it. This mechanism, called `hoistServer` can be used eg. for dependency injection as well as access control."
+    (En // "https://clementd-files.cellar.services.clever-cloud.com/blog/hoist-haskell-paris.html")
+    M.empty
+    False
+  , Talk
     "Purescript, des sensations pures"
     "Dans le monde du compile-to-js, il y a des langages proches (genre coffeescript), \
     \et des langages qui vont un peu plus loin (genre typescript). Et puis il y a purescript. \
