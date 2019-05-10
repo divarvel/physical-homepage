@@ -50,6 +50,14 @@ talks =
     (Fr // "https://www.youtube.com/watch?v=1SV2jQkegAY")
     False
   , Talk
+    "Dev environments: use the nix, Luke!"
+    "Spinning up dev environments got incredibly complex. We now cheat by using containers or VMs, but these are extremely heavyweight solutions.\
+    \We only care about the easy way to run software, not about the runtime isolation. Thankfully, there is nix, that does just that: \
+    \allowing us to run software on your machine without trashing your global environment."
+    (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/devoxx-nix.html")
+    (Fr // "https://www.youtube.com/watch?v=v0NY2VNcoWU")
+    True
+  , Talk
     "Distribute auth with Macaroons"
     "Distributing auth in a microservices architecture is easy. Doing so without adding a SPOF or latency, not as easy."
     M.empty
