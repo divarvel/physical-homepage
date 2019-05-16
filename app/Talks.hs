@@ -37,6 +37,16 @@ talks =
     (Fr // "https://www.youtube.com/watch?v=gH5mPaLU8_g")
     False
   , Talk
+    "Application design with a stack of monads"
+    "Functional Programming is often seen as a nice tool for small-scale concerns, not as a tool for application design. \
+    \However, functional programming comes with interesting tools aimed at solving these boring (or deemed boring) concerns: \
+    \dependency inversion, observability).\
+    \A functional solution, called a monad stack, allows to combine all this cross-cutting concerns and behaviours with no magic \
+    \(or not too much). Let's see how it works and how it relates to the current \"Tagless Final\" trend"
+    (Fr // "https://clementd-files.cellar-c2.services.clever-cloud.com/ncrafts-monad-stacks.html")
+    M.empty
+    True
+  , Talk
     "Beyond flux: going full cycle with functional reactive programming."
     "React and flux have shown us how to design UI in a modular fashion. One of the core ideas, is that data should always flow in one direction. \
     \With this concept, it's easier to build applications from independent modules. I'll show what react core concepts are and how they allow developers to manage complexity in big applications."
