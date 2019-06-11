@@ -60,6 +60,14 @@ talks =
     (Fr // "https://www.youtube.com/watch?v=1SV2jQkegAY")
     False
   , Talk
+    "Config as Code? Yup, but properly. Have some Dhall"
+    "Config files are getting bigger and bigger. Config languages are limited (by design). Using a general purpose language for config \
+    \looks like a good idea but has severe drawbacks. Dhall is designed to bring flexibility and abstraction to config, while keeping \
+    \ key properties."
+    (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/web2day-dhall.html")
+    M.empty
+    True
+  , Talk
     "Dev environments: use the nix, Luke!"
     "Spinning up dev environments got incredibly complex. We now cheat by using containers or VMs, but these are extremely heavyweight solutions.\
     \We only care about the easy way to run software, not about the runtime isolation. Thankfully, there is nix, that does just that: \
