@@ -21,7 +21,7 @@ talks =
     ( Fr // "https://www.youtube.com/watch?v=Daburx0jSvw" <>
       En // "https://www.youtube.com/watch?v=VmVQmC33UVM&amp;list=PLvjEkX1131rDgetaKc2wLqGT92ThIjEaC&amp;index=4"
     )
-    True
+    False
   , Talk
     "Algebraic data types for fun and profit"
     "As domain driven design practitioners, we have to design datastructures a lot. Often we have to encode our knowledge into a \
@@ -87,7 +87,7 @@ talks =
     \However, to get the most of the language, you have to embrace its functional nature."
     (En // "https://clementd-files.cellar.services.clever-cloud.com/blog/fp-patterns-devoxx-be.html")
     (En // "https://www.youtube.com/watch?v=iRGcbCvrtiw&amp;list=PLvjEkX1131rDgetaKc2wLqGT92ThIjEaC&amp;index=1")
-    True
+    False
   , Talk
     "Haskell in production? In a startup? Yup"
     "Haskell is trendy, but too often for side-projects. At Fretlink, they put haskell in production, on real projects."
