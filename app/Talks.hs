@@ -44,7 +44,7 @@ talks =
     \A functional solution, called a monad stack, allows to combine all this cross-cutting concerns and behaviours with no magic \
     \(or not too much). Let's see how it works and how it relates to the current \"Tagless Final\" trend"
     (Fr // "https://clementd-files.cellar-c2.services.clever-cloud.com/ncrafts-monad-stacks.html")
-    M.empty
+    (En // "http://videos.ncrafts.io/video/338475892")
     True
   , Talk
     "Beyond flux: going full cycle with functional reactive programming."
