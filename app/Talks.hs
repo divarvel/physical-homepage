@@ -65,7 +65,7 @@ talks =
     \looks like a good idea but has severe drawbacks. Dhall is designed to bring flexibility and abstraction to config, while keeping \
     \ key properties."
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/web2day-dhall.html")
-    M.empty
+    (En // "https://www.youtube.com/watch?v=sb4LRqJsYPc")
     True
   , Talk
     "Dev environments: use the nix, Luke!"
