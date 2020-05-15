@@ -74,7 +74,7 @@ talks =
     \allowing us to run software on your machine without trashing your global environment."
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/devoxx-nix.html")
     (Fr // "https://www.youtube.com/watch?v=v0NY2VNcoWU")
-    True
+    False
   , Talk
     "Distribute auth with Macaroons"
     "Distributing auth in a microservices architecture is easy. Doing so without adding a SPOF or latency, not as easy."
@@ -102,6 +102,15 @@ talks =
     (En // "https://clementd-files.cellar.services.clever-cloud.com/blog/hoist-haskell-paris.html")
     M.empty
     False
+  , Talk
+    "« It’s traverse! »"
+    "The `traverse` function is so pervasive in functional programming that it became a joke: \
+    \`traverse` is the new `42`. \
+    \Since it's a bit abstract until you actually encounter it, let's dig a little and review \
+    \some case where… well, it was _actually_ `traverse`."
+    (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/ddddd-its-traverse.html")
+    (En // "https://www.youtube.com/watch?v=sIJr3SCKhjo")
+    True
   , Talk
     "Purescript, des sensations pures"
     "Dans le monde du compile-to-js, il y a des langages proches (genre coffeescript), \
