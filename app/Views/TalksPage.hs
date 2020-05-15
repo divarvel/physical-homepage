@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 module Views.TalksPage where
 
 import           Control.Monad                 (forM_)
