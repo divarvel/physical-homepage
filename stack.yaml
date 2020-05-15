@@ -15,7 +15,7 @@
 # resolver:
 #  name: custom-snapshot
 #  location: "./custom-snapshot.yaml"
-resolver: lts-13.19
+resolver: lts-14.20
 
 # User packages to be built.
 # Various formats can be used as shown in the example below.
@@ -41,7 +41,6 @@ packages:
 # (e.g., acme-missiles-0.3)
 extra-deps:
   - wai-middleware-metrics-0.2.4@sha256:d6b6916acd41aaef4ca59a839d40a3a377f9df784ae49fd4c64926ae916b6ba2
-  - wreq-0.5.2.0
 
 # Override default flag values for local packages and extra-deps
 flags: {}
