@@ -184,7 +184,7 @@ h5 a {
 }
 
 :target {
-    background-color: #ccc;
+    background-color: #eee;
 }
 
 h5:hover::after {
