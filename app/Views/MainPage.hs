@@ -24,8 +24,8 @@ mainPage talks = mainLayout $ do
 
 talkBlock :: Talk -> H.Html
 talkBlock talk =
-  H.div ! A.class_ "section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone" $ do
-    H.h5 ! A.id (H.toValue slug) $
+  H.div ! A.class_ "section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone" ! A.id (H.toValue slug) $ do
+    H.h5 $
       H.a ! A.class_ "permalink" ! A.href (H.toValue $ "#" <> slug) $
         H.toHtml $ title talk
     H.p $ H.toHtml $ description talk

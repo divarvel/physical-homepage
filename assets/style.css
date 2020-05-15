@@ -183,6 +183,10 @@ h5 a {
    color: inherit;
 }
 
+:target {
+    background-color: #ccc;
+}
+
 h5:hover::after {
   content: " §";
 }
