@@ -42,7 +42,11 @@ talkBlock talk =
     renderVideoLink Fr = renderLink "Regarder 📹 (en français 🇫🇷)"
     renderLink :: Text -> Text -> H.Html
     renderLink title url =
-      H.span $ H.a ! A.href (toValue url) ! A.target "_blank" $ toHtml title
+      H.span $
+        H.a ! A.href (toValue url)
+            ! A.target "_blank"
+            ! A.rel "noopener"
+            $ toHtml title
 
 cardClasses = "section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp"
 
