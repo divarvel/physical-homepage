@@ -5,6 +5,8 @@ import           Network.Wai.Metrics             (WaiMetrics, metrics,
                                                   registerWaiMetrics)
 import           Network.Wai.Middleware.Static   (hasPrefix, staticPolicy)
 import           System.Environment              (lookupEnv)
+import           System.IO                       (BufferMode (..),
+                                                  hSetBuffering, stdin)
 import           System.Metrics                  (newStore, registerGcMetrics)
 import           System.Remote.Monitoring.Statsd (defaultStatsdOptions,
                                                   forkStatsd)
@@ -31,6 +33,7 @@ handleMetrics = do
   return waiMetrics
 
 main = do
+  hSetBuffering stdin LineBuffering
   waiMetrics <- handleMetrics
   port <- lookupEnv "PORT"
   scotty (maybe 3001 read port) $ do
