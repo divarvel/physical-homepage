@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import           Control.Monad                   (when)
+import           Data.Functor                    (void)
 import           Network.Wai.Metrics             (WaiMetrics, metrics,
                                                   registerWaiMetrics)
 import           Network.Wai.Middleware.Static   (hasPrefix, staticPolicy)
@@ -11,10 +12,8 @@ import           System.Metrics                  (newStore, registerGcMetrics)
 import           System.Remote.Monitoring.Statsd (defaultStatsdOptions,
                                                   forkStatsd)
 import           Text.Blaze.Html.Renderer.Text   (renderHtml)
-import qualified Text.Blaze.Html5                as H
 import           Web.Scotty
 
-import           Model                           (Talk (..))
 import           Talks                           (talks)
 import           Views.MainPage
 import           Views.TalksPage
@@ -28,10 +27,11 @@ handleMetrics = do
   sendMetrics <- maybe False (== "true") <$> lookupEnv "ENABLE_METRICS"
   when sendMetrics $ do
     putStrLn "statsd reporting enabled"
-    forkStatsd defaultStatsdOptions store
+    void $ forkStatsd defaultStatsdOptions store
     return ()
   return waiMetrics
 
+main :: IO ()
 main = do
   hSetBuffering stdin LineBuffering
   waiMetrics <- handleMetrics

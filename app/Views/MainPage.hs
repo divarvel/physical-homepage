@@ -2,18 +2,17 @@
 
 module Views.MainPage where
 
-import           Control.Monad                 (forM_)
-import           Data.List                     (intersperse)
-import qualified Data.Map                      as M
-import           Data.Monoid                   (mconcat, (<>))
-import           Data.Text                     (Text (..))
-import           Network.Wai.Middleware.Static (static)
-import           Text.Blaze.Html.Renderer.Text (renderHtml)
-import           Text.Blaze.Html5              (toHtml, toValue, (!))
-import qualified Text.Blaze.Html5              as H
-import qualified Text.Blaze.Html5.Attributes   as A
+import           Data.Foldable               (sequenceA_, traverse_)
+import           Data.List                   (intersperse)
+import           Data.List.NonEmpty          (NonEmpty, toList)
+import qualified Data.Map                    as M
+import           Data.Text                   (Text)
+import           Text.Blaze.Html5            (toHtml, toValue, (!))
+import qualified Text.Blaze.Html5            as H
+import qualified Text.Blaze.Html5.Attributes as A
 
-import           Model                         (Lang (..), Talk (..), makeSlug)
+import           Model                       (Item, Lang (..), Talk (..),
+                                              makeSlug)
 import           Views.Layout
 
 mainPage :: [Talk] -> H.Html
@@ -29,25 +28,38 @@ talkBlock talk =
       H.a ! A.class_ "permalink" ! A.href (H.toValue $ "/me/talks#" <> slug) $
         H.toHtml $ title talk
     H.p $ H.toHtml $ description talk
-    forM_ allLinks id
+    sequenceA_ allLinks
   where
     slug = makeSlug . title $ talk
-    renderLinks extractor renderF = map (uncurry renderF) (M.toList $ extractor talk)
-    slidesLinks = renderLinks slides renderSlidesLink
-    videosLinks = renderLinks video renderVideoLink
+    renderLinks extractor renderF = foldMap (uncurry renderF) (M.toList $ extractor talk)
+    slidesLinks = renderLinks slides renderSlidesLinks
+    videosLinks = renderLinks video renderVideoLinks
     allLinks = intersperse (toHtml (" || " :: Text)) (slidesLinks <> videosLinks)
-    renderSlidesLink En = renderLink "Read (in english 🇬🇧)"
-    renderSlidesLink Fr = renderLink "Lire (en français 🇫🇷)"
-    renderVideoLink En = renderLink "Watch 📹 (in english 🇬🇧)"
-    renderVideoLink Fr = renderLink "Regarder 📹 (en français 🇫🇷)"
-    renderLink :: Text -> Text -> H.Html
-    renderLink title url =
+    renderSlidesLinks :: Lang -> NonEmpty Item -> [H.Html]
+    renderSlidesLinks En = toList . fmap (renderLink $ mkSlidesTitle En)
+    renderSlidesLinks Fr = toList . fmap (renderLink $ mkSlidesTitle Fr)
+    renderVideoLinks :: Lang -> NonEmpty Item -> [H.Html]
+    renderVideoLinks En = toList . fmap (renderLink $ mkVideoTitle En)
+    renderVideoLinks Fr = toList . fmap (renderLink $ mkVideoTitle Fr)
+    mkVideoTitle :: Lang -> Maybe Text -> Text
+    mkVideoTitle En (Just label) = "Watch 📹 (in english 🇬🇧, at " <> label <> ")"
+    mkVideoTitle En _            = "Watch 📹 (in english 🇬🇧)"
+    mkVideoTitle Fr (Just label) = "Regarder 📹 (en français 🇫🇷, à " <> label <> ")"
+    mkVideoTitle Fr _            = "Regarder 📹 (en français 🇫🇷)"
+    mkSlidesTitle :: Lang -> Maybe Text -> Text
+    mkSlidesTitle En (Just label) = "Read (in english 🇬🇧, at " <> label <> ")"
+    mkSlidesTitle En _            = "Read (in english 🇬🇧)"
+    mkSlidesTitle Fr (Just label) = "Lire (en français 🇫🇷, à " <> label <> ")"
+    mkSlidesTitle Fr _            = "Lire (en français 🇫🇷)"
+    renderLink :: (Maybe Text -> Text) -> Item -> H.Html
+    renderLink mkTitle (label, url) =
       H.span $
         H.a ! A.href (toValue url)
             ! A.target "_blank"
             ! A.rel "noopener"
-            $ toHtml title
+            $ toHtml (mkTitle label)
 
+cardClasses :: H.AttributeValue
 cardClasses = "section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp"
 
 allTalks :: Bool -> [Talk] -> H.Html
@@ -55,7 +67,7 @@ allTalks isMain talks = H.section ! A.class_ cardClasses $
   H.div ! A.class_ "mdl-card mdl-cell mdl-cell--12-col" $ do
     H.div ! A.class_ "mdl-card__supporting-text mdl-grid mdl-grid--no-spacing" $ do
       H.h4 ! A.class_ "mdl-cell mdl-cell--12-col" $ "Talks"
-      forM_ talks talkBlock
+      traverse_ talkBlock talks
     if isMain then
       H.div ! A.class_ "mdl-card__actions" $
         H.a ! A.href "/me/talks" ! A.class_ "mdl-button" $ "All my talks"

@@ -2,16 +2,11 @@
 
 module Views.Layout where
 
-import           Control.Monad                 (forM_)
-import           Data.Monoid                   (mconcat, (<>))
-import           Data.Text                     (Text (..))
-import           Network.Wai.Middleware.Static (static)
-import           Text.Blaze.Html.Renderer.Text (renderHtml)
-import           Text.Blaze.Html5              (toHtml, toValue, (!))
-import qualified Text.Blaze.Html5              as H
-import qualified Text.Blaze.Html5.Attributes   as A
-
-import           Model                         (Talk (..))
+import           Data.Foldable               (for_)
+import           Data.Text                   (Text)
+import           Text.Blaze.Html5            (toValue, (!))
+import qualified Text.Blaze.Html5            as H
+import qualified Text.Blaze.Html5.Attributes as A
 
 mainLayout :: H.Html -> H.Html
 mainLayout content = H.docTypeHtml $ do
@@ -23,11 +18,11 @@ headBlock = H.head $ do
   H.meta ! A.charset "utf-8"
   H.meta ! A.httpEquiv "X-UA-Compatible" ! A.content "IE=edge"
   H.title " 🌈 Clément Delafargue  🌈 🐇"
-  forM_ meta (\(name, content) -> H.meta ! A.name (toValue name) ! A.content (toValue content))
+  for_ meta (\(name, content) -> H.meta ! A.name (toValue name) ! A.content (toValue content))
   H.link ! A.rel "icon" ! A.sizes "192x192" ! A.href "/me/assets/android-desktop.png"
   H.link ! A.rel "apple-touch-icon-precomposed" ! A.href "/me/assets/ios-desktop.png"
   H.link ! A.rel "shortcut icon" ! A.href "/me/assets/favicon.png"
-  forM_ stylesheets (\href -> H.link ! A.rel "stylesheet" ! A.href (toValue href))
+  for_ stylesheets (\href -> H.link ! A.rel "stylesheet" ! A.href (toValue href))
 
   where
     meta :: [(Text, Text)]

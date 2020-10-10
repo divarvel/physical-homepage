@@ -2,14 +2,17 @@
 
 module Talks where
 
-import qualified Data.Map    as M
-import           Data.Monoid ((<>))
-import           Data.Text   (Text (..))
+import           Data.List.NonEmpty (NonEmpty (..))
+import qualified Data.Map           as M
+import           Data.Text          (Text)
 
-import           Model       (Lang (..), Talk (..))
+import           Model              (Item, Lang (..), Talk (..))
 
-(//) :: Lang -> Text -> M.Map Lang Text
-(//) = M.singleton
+(//) :: Lang -> Text -> M.Map Lang (NonEmpty Item)
+l // u = M.singleton l (pure (pure u))
+
+(///) :: Lang -> NonEmpty Item -> M.Map Lang (NonEmpty Item)
+(///) = M.singleton
 
 talks :: [Talk]
 talks =
@@ -108,7 +111,10 @@ talks =
     \`traverse` is the new `42`. \
     \Since it's a bit abstract until you actually encounter it, let's dig a little and review \
     \some case where… well, it was _actually_ `traverse`."
-    (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/ddddd-its-traverse.html")
+    (En /// ( (Just "DDDDD", "https://clementd-files.cellar-c2.services.clever-cloud.com/ddddd-its-traverse.html")
+           :| [(Just "LambdaLille", "https://clementd-files.cellar-c2.services.clever-cloud.com/lambdalille-its-traverse.html")]
+            )
+    )
     (En // "https://www.youtube.com/watch?v=sIJr3SCKhjo")
     True
   , Talk
