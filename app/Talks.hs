@@ -115,7 +115,9 @@ talks =
            :| [(Just "LambdaLille", "https://clementd-files.cellar-c2.services.clever-cloud.com/lambdalille-its-traverse.html")]
             )
     )
-    (En // "https://www.youtube.com/watch?v=sIJr3SCKhjo")
+    ( En /// pure (Just "DDDDD", "https://www.youtube.com/watch?v=sIJr3SCKhjo")
+   <> Fr /// pure (Just "LambdaLille", "https://www.youtube.com/watch?v=qB_hDiQtrMo")
+    )
     True
   , Talk
     "Purescript, des sensations pures"
