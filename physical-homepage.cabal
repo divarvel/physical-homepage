@@ -22,7 +22,7 @@ executable spock-exe
                      , ekg-statsd
                      , scotty
                      , text
-                     , text-icu
+                     , unicode-transforms
                      , wai-middleware-metrics
                      , wai-middleware-static
   default-language:    Haskell2010

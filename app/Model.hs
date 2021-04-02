@@ -2,12 +2,12 @@
 
 module Model where
 
-import           Data.Char               (isAlpha)
-import           Data.List.NonEmpty      (NonEmpty)
-import qualified Data.Map                as M
-import           Data.Text               (Text)
-import qualified Data.Text               as T
-import           Data.Text.ICU.Normalize
+import           Data.Char           (isAlpha)
+import           Data.List.NonEmpty  (NonEmpty)
+import qualified Data.Map            as M
+import           Data.Text           (Text)
+import qualified Data.Text           as T
+import           Data.Text.Normalize
 
 
 data Lang = Fr | En deriving (Eq, Ord)
