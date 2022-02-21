@@ -1,4 +1,6 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns        #-}
+{-# LANGUAGE OverloadedStrings     #-}
 
 module Views.MainPage where
 
@@ -11,26 +13,27 @@ import           Text.Blaze.Html5            (toHtml, toValue, (!))
 import qualified Text.Blaze.Html5            as H
 import qualified Text.Blaze.Html5.Attributes as A
 
-import           Model                       (Item, Lang (..), Talk (..),
-                                              makeSlug)
+import           Model                       (Item, Lang (..), Project (..),
+                                              Talk (..), makeSlug)
 import           Views.Layout
 
-mainPage :: [Talk] -> H.Html
-mainPage talks = mainLayout $ do
+mainPage :: [Talk] -> [Project] -> H.Html
+mainPage talks projects = mainLayout $ do
   miniBlock
   allTalks True $ filter featured talks
+  openSource projects
   companyBlock
 
 talkBlock :: Talk -> H.Html
-talkBlock talk =
+talkBlock talk@Talk{title,description}=
   H.div ! A.class_ "section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone" ! A.id (H.toValue slug) $ do
     H.h5 $
       H.a ! A.class_ "permalink" ! A.href (H.toValue $ "/me/talks#" <> slug) $
-        H.toHtml $ title talk
-    H.p $ H.toHtml $ description talk
+        H.toHtml $ title
+    H.p $ H.toHtml $ description
     sequenceA_ allLinks
   where
-    slug = makeSlug . title $ talk
+    slug = makeSlug title
     renderLinks extractor renderF = foldMap (uncurry renderF) (M.toList $ extractor talk)
     slidesLinks = renderLinks slides renderSlidesLinks
     videosLinks = renderLinks video renderVideoLinks
@@ -74,6 +77,25 @@ allTalks isMain talks = H.section ! A.class_ cardClasses $
     else
       H.div ! A.class_ "mdl-card__actions" $
         H.a ! A.href "https://www.youtube.com/playlist?list=PLvjEkX1131rDgetaKc2wLqGT92ThIjEaC" ! A.class_ "mdl-button" $ "All my videos"
+
+projectBlock :: Project -> H.Html
+projectBlock Project{title,description, url}=
+  H.div ! A.class_ "section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone" $ do
+    H.h5 $
+      H.toHtml $ title
+    H.p $ H.toHtml $ description
+    H.span $
+      H.a ! A.href (toValue url)
+          ! A.target "_blank"
+          ! A.rel "noopener"
+          $ toHtml url
+
+openSource :: [Project] -> H.Html
+openSource projects = H.section ! A.class_ cardClasses $
+  H.div ! A.class_ "mdl-card mdl-cell mdl-cell--12-col" $ do
+    H.div ! A.class_ "mdl-card__supporting-text mdl-grid mdl-grid--no-spacing" $ do
+      H.h4 ! A.class_ "mdl-cell mdl-cell--12-col" $ "Open-source"
+      traverse_ projectBlock projects
 
 companyBlock :: H.Html
 companyBlock = H.section ! A.class_ cardClasses $ do

@@ -14,6 +14,7 @@ import           System.Remote.Monitoring.Statsd (defaultStatsdOptions,
 import           Text.Blaze.Html.Renderer.Text   (renderHtml)
 import           Web.Scotty
 
+import           Projects                        (projects)
 import           Talks                           (talks)
 import           Views.MainPage
 import           Views.TalksPage
@@ -41,10 +42,10 @@ main = do
     middleware $ staticPolicy (hasPrefix  "assets/")
     middleware $ staticPolicy (hasPrefix  "me/assets/")
     get "/" $
-      html $ renderHtml $ mainPage talks
+      html $ renderHtml $ mainPage talks projects
     get "/talks" $
       html $ renderHtml $ talksPage talks
     get "/me" $
-      html $ renderHtml $ mainPage talks
+      html $ renderHtml $ mainPage talks projects
     get "/me/talks" $
       html $ renderHtml $ talksPage talks

@@ -1,4 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE OverloadedStrings     #-}
 
 module Model where
 
@@ -20,6 +21,12 @@ data Talk = Talk
   , slides      :: !(M.Map Lang (NonEmpty Item))
   , video       :: !(M.Map Lang (NonEmpty Item))
   , featured    :: !Bool
+  }
+
+data Project = Project
+  { title       :: !Text
+  , description :: !Text
+  , url         :: !Text
   }
 
 makeSlug :: Text -> Text
