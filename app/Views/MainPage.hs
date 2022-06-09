@@ -101,16 +101,14 @@ companyBlock :: H.Html
 companyBlock = H.section ! A.class_ cardClasses $ do
   H.div ! A.class_ "mdl-card mdl-cell mdl-cell--12-col" $ do
     H.div ! A.class_"mdl-card__supporting-text" $ do
-      H.h4 "FretLink: Shipment made simpler"
-      "FretLink is a flow management solution to industrial shippers that brings \
-      \more visibility to all stakeholders in the chain."
+      H.h4 "Bellroy"
     H.div ! A.class_ "mdl-card__actions" $
-      H.a ! A.href "https://fretlink.com" ! A.class_ "mdl-button" $ "Read more"
-  H.button ! A.class_ "mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ! A.id "fretlink-more" $
+      H.a ! A.href "https://bellroy.com" ! A.class_ "mdl-button" $ "Read more"
+  H.button ! A.class_ "mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" ! A.id "bellroy-more" $
     H.i ! A.class_ "material-icons" $ "more_vert"
-  H.ul ! A.class_ "mdl-menu mdl-js-menu mdl-menu--bottom-right" ! A.for "fretlink-more" $ do
-    menuItem "https://github.com/fretlink" "Github"
-    menuItem "https://twitter.com/fretlinkeu" "Twitter"
+  H.ul ! A.class_ "mdl-menu mdl-js-menu mdl-menu--bottom-right" ! A.for "bellroy-more" $ do
+    menuItem "https://github.com/bellroy" "Github"
+    menuItem "https://twitter.com/bellroy" "Twitter"
   where
     menuItem :: Text -> Text -> H.Html
     menuItem url name = H.li ! A.class_ "mdl-menu__item" $
@@ -123,7 +121,6 @@ miniBlock = H.section ! A.class_ cardClasses $ do
   H.div ! A.class_ "mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone" $ do
     H.div ! A.class_ "mdl-card__supporting-text" $ do
       H.h4 "Hi, I'm Clément"
-      "I'm a functional programmer working at FretLink. I love discussing about FP, distributed systems and cloud architecture. \
-      \If you've seen this page pop up in \"nearby\", let's have a chat!"
+      "I'm a functional programmer working at Bellroy. I love discussing about FP, distributed systems and cloud architecture."
     H.div ! A.class_ "mdl-card__actions" $
       H.a ! A.href "https://twitter.com/clementd" ! A.target "_blank" ! A.class_ "mdl-button" $ "@clementd"
