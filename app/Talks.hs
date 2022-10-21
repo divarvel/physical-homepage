@@ -40,6 +40,12 @@ talks =
     (Fr // "https://www.youtube.com/watch?v=gH5mPaLU8_g")
     False
   , Talk
+    "Authn/Authz: a tale of cookies and tokens"
+    "A tour of authentication, authorization, relevant models and tooling"
+    (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/devfest-biscuit.html")
+    mempty
+    True
+  , Talk
     "Application design with a stack of monads"
     "Functional Programming is often seen as a nice tool for small-scale concerns, not as a tool for application design. \
     \However, functional programming comes with interesting tools aimed at solving these boring (or deemed boring) concerns: \
@@ -48,7 +54,7 @@ talks =
     \(or not too much). Let's see how it works and how it relates to the current \"Tagless Final\" trend"
     (Fr // "https://clementd-files.cellar-c2.services.clever-cloud.com/ncrafts-monad-stacks.html")
     (En // "http://videos.ncrafts.io/video/338475892")
-    True
+    False
   , Talk
     "Beyond flux: going full cycle with functional reactive programming."
     "React and flux have shown us how to design UI in a modular fashion. One of the core ideas, is that data should always flow in one direction. \
