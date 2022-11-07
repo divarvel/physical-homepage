@@ -43,7 +43,7 @@ talks =
     "Authn/Authz: a tale of cookies and tokens"
     "A tour of authentication, authorization, relevant models and tooling"
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/devfest-biscuit.html")
-    mempty
+    (Fr // "https://www.youtube.com/watch?v=8_-QGBMT7-k")
     True
   , Talk
     "Application design with a stack of monads"
