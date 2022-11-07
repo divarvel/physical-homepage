@@ -122,5 +122,5 @@ miniBlock = H.section ! A.class_ cardClasses $ do
     H.div ! A.class_ "mdl-card__supporting-text" $ do
       H.h4 "Hi, I'm Clément"
       "I'm a functional programmer working at Bellroy. I love discussing about FP, distributed systems and cloud architecture."
-    H.div ! A.class_ "mdl-card__actions" $
-      H.a ! A.href "https://twitter.com/clementd" ! A.target "_blank" ! A.class_ "mdl-button" $ "@clementd"
+    H.div ! A.class_ "mdl-card__actions" $ do
+      H.a ! A.href "https://framapiaf.org/@clementd" !A.rel "me" ! A.class_ "mdl-button" $ "@clementd"
