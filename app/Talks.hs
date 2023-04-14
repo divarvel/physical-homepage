@@ -44,7 +44,7 @@ talks =
     "A tour of authentication, authorization, relevant models and tooling"
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/devfest-biscuit.html")
     (Fr // "https://www.youtube.com/watch?v=8_-QGBMT7-k")
-    True
+    False
   , Talk
     "Application design with a stack of monads"
     "Functional Programming is often seen as a nice tool for small-scale concerns, not as a tool for application design. \
@@ -90,6 +90,12 @@ talks =
     M.empty
     M.empty
     False
+  , Talk
+    "Distributed auth: don't give up"
+    "A tour of distributed auth patterns, the associated challenges and how biscuit makes things easier"
+    (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/devoxx-dist-auth.html")
+    M.empty
+    True
   , Talk
     "Functional patterns for scala practitioners"
     "Scala, by being both Functional and Object-Oriented is easy to get started with, especially for java developpers. \
