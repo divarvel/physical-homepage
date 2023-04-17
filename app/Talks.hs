@@ -96,7 +96,7 @@ talks =
   , Talk
     "Distributed auth: don't give up"
     "A tour of distributed auth patterns, the associated challenges and how biscuit makes things easier"
-    (Just "2022")
+    (Just "2023")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/devoxx-dist-auth.html")
     M.empty
     True
