@@ -25,14 +25,15 @@ mainPage talks projects = mainLayout $ do
   companyBlock
 
 talkBlock :: Talk -> H.Html
-talkBlock talk@Talk{title,description}=
+talkBlock talk@Talk{title,description,years}=
   H.div ! A.class_ "section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone" ! A.id (H.toValue slug) $ do
     H.h5 $
       H.a ! A.class_ "permalink" ! A.href (H.toValue $ "/me/talks#" <> slug) $
-        H.toHtml $ title
+        H.toHtml title <> foldMap renderYears years
     H.p $ H.toHtml $ description
     sequenceA_ allLinks
   where
+    renderYears = (" " <>) . H.i . H.toHtml
     slug = makeSlug title
     renderLinks extractor renderF = foldMap (uncurry renderF) (M.toList $ extractor talk)
     slidesLinks = renderLinks slides renderSlidesLinks
@@ -76,7 +77,7 @@ allTalks isMain talks = H.section ! A.class_ cardClasses $
         H.a ! A.href "/me/talks" ! A.class_ "mdl-button" $ "All my talks"
     else
       H.div ! A.class_ "mdl-card__actions" $
-        H.a ! A.href "https://www.youtube.com/playlist?list=PLvjEkX1131rDgetaKc2wLqGT92ThIjEaC" ! A.class_ "mdl-button" $ "All my videos"
+        H.a ! A.href "https://www.youtube.com/playlist?list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR" ! A.class_ "mdl-button" $ "All my videos"
 
 projectBlock :: Project -> H.Html
 projectBlock Project{title,description, url}=

@@ -18,6 +18,7 @@ type Item = (Maybe Text, Text)
 data Talk = Talk
   { title       :: !Text
   , description :: !Text
+  , years       :: !(Maybe Text)
   , slides      :: !(M.Map Lang (NonEmpty Item))
   , video       :: !(M.Map Lang (NonEmpty Item))
   , featured    :: !Bool
