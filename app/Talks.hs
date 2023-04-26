@@ -22,7 +22,7 @@ talks =
     "A tour of distributed auth patterns, the associated challenges and how biscuit makes things easier"
     (Just "2023")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/devoxx-dist-auth.html")
-    M.empty
+    (Fr // "https://www.youtube.com/watch?v=t9oGeFp4KLc")
     True
   , Talk
     "Authn/Authz: a tale of cookies and tokens"
