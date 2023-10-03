@@ -22,14 +22,14 @@ talks =
     "A tour of distributed auth patterns, the associated challenges and how biscuit makes things easier"
     (Just "2023")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/devoxx-dist-auth.html")
-    (Fr // "https://www.youtube.com/watch?v=t9oGeFp4KLc")
+    (Fr // "https://www.youtube.com/watch?v=t9oGeFp4KLc&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR")
     True
   , Talk
     "Authn/Authz: a tale of cookies and tokens"
     "A tour of authentication, authorization, relevant models and tooling"
     (Just "2022")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/devfest-biscuit.html")
-    (Fr // "https://www.youtube.com/watch?v=8_-QGBMT7-k")
+    (Fr // "https://www.youtube.com/watch?v=8_-QGBMT7-k&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR")
     False
   , Talk
     "« It’s traverse! »"
@@ -43,7 +43,7 @@ talks =
             )
     )
     ( En /// pure (Just "DDDDD", "https://www.youtube.com/watch?v=sIJr3SCKhjo")
-   <> Fr /// pure (Just "LambdaLille", "https://www.youtube.com/watch?v=qB_hDiQtrMo")
+   <> Fr /// pure (Just "LambdaLille", "https://www.youtube.com/watch?v=qB_hDiQtrMo&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR")
     )
     True
   , Talk
@@ -55,7 +55,7 @@ talks =
     \(or not too much). Let's see how it works and how it relates to the current \"Tagless Final\" trend"
     (Just "2019")
     (Fr // "https://clementd-files.cellar-c2.services.clever-cloud.com/ncrafts-monad-stacks.html")
-    (En // "http://videos.ncrafts.io/video/338475892")
+    (En // "https://vimeopro.com/newcrafts/newcrafts/video/338475892")
     False
   , Talk
     "Config as Code? Yup, but properly. Have some Dhall"
@@ -64,7 +64,7 @@ talks =
     \ key properties."
     (Just "2019")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/web2day-dhall.html")
-    (En // "https://www.youtube.com/watch?v=sb4LRqJsYPc")
+    (En // "https://www.youtube.com/watch?v=sb4LRqJsYPc&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR")
     True
   , Talk
     "Dev environments: use the nix, Luke!"
@@ -73,7 +73,7 @@ talks =
     \allowing us to run software on your machine without trashing your global environment."
     (Just "2019")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/devoxx-nix.html")
-    (Fr // "https://www.youtube.com/watch?v=v0NY2VNcoWU")
+    (Fr // "https://www.youtube.com/watch?v=v0NY2VNcoWU&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR")
     False
   , Talk
     "Hoist me up, before you lift lift"
@@ -90,14 +90,14 @@ talks =
     \behaviour with types, you can go a very long way, with more confidence and with less hassle than with tests."
     (Just "2015 - 2018")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/blog/type-dd-devoxxfr.html")
-    (En // "https://www.youtube.com/watch?v=iMITdKE4dys&amp;list=PLvjEkX1131rDgetaKc2wLqGT92ThIjEaC&amp;index=2")
+    (En // "https://www.youtube.com/watch?v=H8JXQPCvTw8&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR" <> Fr // "https://www.youtube.com/watch?v=XhcgCF0xXRs&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR")
     False
   , Talk
     "Create a Rust CLI tool in a flash "
     "\"Tools not rules\". A process without a tool to guide is mistakes waiting to happen."
     (Just "2018")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/blog/rust-cli-devoxxfr.html")
-    (Fr // "https://www.youtube.com/watch?v=1SV2jQkegAY")
+    (Fr // "https://www.youtube.com/watch?v=1SV2jQkegAY&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR")
     False
   , Talk
     "Acknowledging boundaries"
@@ -105,8 +105,8 @@ talks =
     \You'll see how to do it with the help of proper design and a good type system."
     (Just "2017")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/blog/acknowledging-boundaries-devoxxfr.html")
-    ( Fr // "https://www.youtube.com/watch?v=Daburx0jSvw" <>
-      En // "https://www.youtube.com/watch?v=VmVQmC33UVM&amp;list=PLvjEkX1131rDgetaKc2wLqGT92ThIjEaC&amp;index=4"
+    ( Fr // "https://www.youtube.com/watch?v=Daburx0jSvw&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR" <>
+      En // "https://www.youtube.com/watch?v=VmVQmC33UVM"
     )
     False
   , Talk
@@ -114,7 +114,7 @@ talks =
     "Haskell is trendy, but too often for side-projects. At Fretlink, they put haskell in production, on real projects."
     (Just "2017")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/scala-io-haskell.html")
-    (Fr // "https://www.youtube.com/watch?v=yKA-hYZa2tQ")
+    (Fr // "https://www.youtube.com/watch?v=yKA-hYZa2tQ&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR")
     False
   , Talk
     "All my team is using rust. HALP!"
@@ -122,7 +122,7 @@ talks =
     \That's not to say we've stopped using scala, java, or ruby (and even a bit of go and haskell). As a CTO, how do I keep complexity and language diversity in check? How do I choose which language to use for projects? Do I let others choose?"
     (Just "2017")
     (Fr // "https://clementd-files.cellar-c2.services.clever-cloud.com/scala-io-rust.html")
-    (Fr // "https://www.youtube.com/watch?v=gH5mPaLU8_g")
+    (Fr // "https://www.youtube.com/watch?v=gH5mPaLU8_g&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR")
     False
   , Talk
     "Purescript, des sensations pures"
@@ -139,7 +139,7 @@ talks =
     \not-so-expressive type system. That's when the trouble starts: our types don't represent exactly what we have."
     (Just "2016")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/blog/adt-devoxx-be.html")
-    (En // "https://www.youtube.com/watch?v=EPxi546vVHI&amp;list=PLvjEkX1131rDgetaKc2wLqGT92ThIjEaC&amp;index=5")
+    (En // "https://www.youtube.com/watch?v=EPxi546vVHI&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR")
     False
   , Talk
     "Beyond flux: going full cycle with functional reactive programming."
@@ -147,7 +147,7 @@ talks =
     \With this concept, it's easier to build applications from independent modules. I'll show what react core concepts are and how they allow developers to manage complexity in big applications."
     (Just "2016")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/blog/frp-full-cycle-ncrafts.html")
-    (Fr // "https://www.youtube.com/watch?v=ZAm-9i1O_HY&amp;t=34s")
+    (En // "https://vimeopro.com/newcrafts/newcrafts/video/170129852")
     False
   , Talk
     "Functional patterns for scala practitioners"
@@ -155,7 +155,7 @@ talks =
     \However, to get the most of the language, you have to embrace its functional nature."
     (Just "2016")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/blog/fp-patterns-devoxx-be.html")
-    (En // "https://www.youtube.com/watch?v=iRGcbCvrtiw&amp;list=PLvjEkX1131rDgetaKc2wLqGT92ThIjEaC&amp;index=1")
+    (En // "https://www.youtube.com/watch?v=iRGcbCvrtiw&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR")
     False
   , Talk
     "Tips and tricks for clean relational db schemas"
@@ -164,7 +164,7 @@ talks =
     \I'll show a few tricks which will help you cleanly store and query data by using your database engine to its full power."
     (Just "2014")
     (En // "https://clementd-files.cellar-c2.services.clever-cloud.com/blog/tips-tricks-rdbms-geecon.html")
-    (Fr // "https://www.youtube.com/watch?v=-JOE8c0v84Q")
+    (Fr // "https://www.youtube.com/watch?v=-JOE8c0v84Q&list=PLgqACm4pzpkxFQDWtkArFtlgjnbFRW2nR")
     False
   , Talk
     "Survival guide: modern CSS for the grumpy backend developer"
